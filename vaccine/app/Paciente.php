@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Paciente extends Model
 {
-    protected $fillable = ['id', 'datanasc', 'cpf'];
+    protected $fillable = ['pacient_id', 'datanasc'];
     
     protected $table = 'pacients';
+    public function pessoas()
+    {
+        return $this->morphMany('App\Pessoa', 'pessoable');
+    }
 }
